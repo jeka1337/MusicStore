@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TNJEZTcyjHrDkaeJLELhTNkvfQF/FZnilr9ZTO2QrSzmPNl1E+HT+qEZbon8tmkYRkGPTV/1TZ81jo0IBpMM9g==",
+  "dgSpecHash": "Rcr2tMaTJEadXk7dQnGQOd1Dr7smThYGXwZhk6MTgNCI9Wh7NHThe+guyM8h1o1wIpeEoa7szh4Moiho66rKng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\student\\source\\repos\\MusicStore\\MusicStore\\MusicStore.Core\\MusicStore.Core.csproj",
+  "projectFilePath": "C:\\Users\\student\\Desktop\\5\\MusicStore\\MusicStore.Core\\MusicStore.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\student\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
   ],

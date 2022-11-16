@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D4oyKclETjHaAU0cr294Opg1nQuDz74yitVhu4B7UymHkYK5Vxep8nkG7Sq+AdcAvP2nS8FrjQDcqGDnHV6Wzg==",
+  "dgSpecHash": "mNtX15IWIKdSyDCQWpoVl1gkQ4b2is88Xx+BOkywlyzCjK1GxXOhrRi9UgvfRYl18Y9vrJeJsas2ID62ag2TZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\student\\source\\repos\\MusicStore\\MusicStore\\MusicStore.Core.Tests\\MusicStore.Core.Tests.csproj",
+  "projectFilePath": "C:\\Users\\student\\Desktop\\5\\MusicStore\\MusicStore.Core.Tests\\MusicStore.Core.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\student\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\student\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
