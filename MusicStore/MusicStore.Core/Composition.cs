@@ -6,7 +6,7 @@ namespace MusicStore.Core
     /// <summary>
     /// Композиция.
     /// </summary>
-    public class Composition
+    public class Composition : IEquatable<Composition>
     {
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Composition"/>.
@@ -15,9 +15,27 @@ namespace MusicStore.Core
         /// <param name="duration"> Продолжительность. </param>
         /// <param name="album"> Альбом. </param>
         /// <param name="price"> Цена. </param>
-        public Composition(string title, int duration, Album album, float price)
+        public Composition(string title, int duration, Album album, decimal price)
         {
-            this.SerialNumber = Guid.NewGuid();
+            if (duration <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(duration));
+            }
+            else
+            {
+                this.Duration = duration;
+            }
+
+            if (price <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(price));
+            }
+            else
+            {
+                this.Price = price;
+            }
+
+            this.Id = Guid.NewGuid();
             this.Title = title ?? throw new ArgumentNullException(nameof(title));
             this.Duration = duration;
             this.Album = album;
@@ -27,35 +45,17 @@ namespace MusicStore.Core
         /// <summary>
         /// Серийный номер.
         /// </summary>
-        public Guid SerialNumber { get; set; }
+        public Guid Id { get; protected set; }
 
         /// <summary>
         /// Название.
         /// </summary>
-        public string Title { get; set; }
+        public string Title { get; protected set; }
 
         /// <summary>
         /// Продолжительность.
         /// </summary>
-        public int Duration
-        {
-            get
-            {
-                return this.Duration;
-            }
-
-            set
-            {
-                if (value <= 0)
-                {
-                    throw new ArgumentOutOfRangeException(nameof(value));
-                }
-                else
-                {
-                    this.Duration = value;
-                }
-            }
-        }
+        public int Duration { get; protected set; }
 
         /// <summary>
         /// Альбом.
@@ -65,29 +65,18 @@ namespace MusicStore.Core
         /// <summary>
         /// Цена.
         /// </summary>
-        public float Price
-        {
-            get
-            {
-                return this.Price;
-            }
+        public decimal Price { get; protected set; }
 
-            set
-            {
-                if (value <= 0)
-                {
-                    throw new ArgumentOutOfRangeException(nameof(value));
-                }
-                else
-                {
-                    this.Price = value;
-                }
-            }
+        /// <inheritdoc/>
+        public bool Equals(Composition? other)
+        {
+            return Equals(this.Id, other?.Id);
         }
 
-        /// <summary>
-        /// Автор.
-        /// </summary>
-        public string Author { get; set; }
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.Id.GetHashCode();
+        }
     }
 }
