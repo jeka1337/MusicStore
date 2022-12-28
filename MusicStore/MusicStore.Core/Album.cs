@@ -15,7 +15,7 @@ namespace MusicStore.Core
         /// <param name="description"> Описание. </param>
         /// <param name="author"> Автор. </param>
         /// <param name="dateOfProduction"> Дата производства. </param>
-        public Album(string title, string description, Author author, DateOnly dateOfProduction)
+        public Album(string title, string description, Author author, DateTime dateOfProduction)
         {
             this.Id = Guid.NewGuid();
             this.Title = title ?? throw new ArgumentNullException(nameof(title));
@@ -25,29 +25,38 @@ namespace MusicStore.Core
         }
 
         /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Album"/>.
+        /// Пустой конструктор для работы с ORM.
+        /// </summary>
+        [Obsolete("For ORM", true)]
+        protected Album()
+        {
+        }
+
+        /// <summary>
         /// Идентификатор.
         /// </summary>
-        public Guid Id { get; protected set; }
+        public virtual Guid Id { get; protected set; }
 
         /// <summary>
         /// Название.
         /// </summary>
-        public string Title { get; protected set; }
+        public virtual string Title { get; protected set; }
 
         /// <summary>
         /// Описание.
         /// </summary>
-        public string Description { get; protected set; }
+        public virtual string Description { get; protected set; }
 
         /// <summary>
         /// Автор.
         /// </summary>
-        public Author Author { get; protected set; }
+        public virtual Author Author { get; protected set; }
 
         /// <summary>
         /// Дата производства.
         /// </summary>
-        public DateOnly DateOfProduction { get; protected set; }
+        public virtual DateTime DateOfProduction { get; protected set; }
 
         /// <summary>
         /// Композиции.
@@ -58,7 +67,7 @@ namespace MusicStore.Core
         /// Добавление композиции альбому.
         /// </summary>
         /// <param name="composition"> Композиция. </param>
-        public void AddCompositionToAlbum(Composition composition)
+        public virtual void AddCompositionToAlbum(Composition composition)
         {
             this.Compositions.Add(composition);
             composition.Album = this;
@@ -71,7 +80,7 @@ namespace MusicStore.Core
         }
 
         /// <inheritdoc/>
-        public bool Equals(Album? other)
+        public virtual bool Equals(Album? other)
         {
             return Equals(this.Id, other?.Id);
         }

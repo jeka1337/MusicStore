@@ -15,7 +15,7 @@ namespace MusicStore.Core
         /// <param name="surname"> Фамилия. </param>
         /// <param name="patronymic"> Отчество. </param>
         /// <param name="dateOfBirth"> Дата рождения. </param>
-        public Author(string name, string surname, string patronymic, DateOnly dateOfBirth)
+        public Author(string name, string surname, string patronymic, DateTime dateOfBirth)
         {
             this.Id = Guid.NewGuid();
             this.Name = name ?? throw new ArgumentNullException(nameof(name));
@@ -25,29 +25,38 @@ namespace MusicStore.Core
         }
 
         /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Author"/>.
+        /// Пустой конструктор для работы с ORM.
+        /// </summary>
+        [Obsolete("For ORM", true)]
+        protected Author()
+        {
+        }
+
+        /// <summary>
         /// Идентификатор.
         /// </summary>
-        public Guid Id { get; protected set; }
+        public virtual Guid Id { get; protected set; }
 
         /// <summary>
         /// Имя.
         /// </summary>
-        public string Name { get; protected set; }
+        public virtual string Name { get; protected set; }
 
         /// <summary>
         /// Фамилия.
         /// </summary>
-        public string Surname { get; protected set; }
+        public virtual string Surname { get; protected set; }
 
         /// <summary>
         /// Отчество.
         /// </summary>
-        public string Patronymic { get; protected set; }
+        public virtual string Patronymic { get; protected set; }
 
         /// <summary>
         /// Дата рождения.
         /// </summary>
-        public DateOnly DateOfBirth { get; protected set; }
+        public virtual DateTime DateOfBirth { get; protected set; }
 
         /// <inheritdoc/>
         public override int GetHashCode()
@@ -56,7 +65,7 @@ namespace MusicStore.Core
         }
 
         /// <inheritdoc/>
-        public bool Equals(Author? other)
+        public virtual bool Equals(Author? other)
         {
             return Equals(this.Id, other?.Id);
         }

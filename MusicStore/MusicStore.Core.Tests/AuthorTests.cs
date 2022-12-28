@@ -6,7 +6,7 @@ namespace MusicStore.Core.Tests
     using MusicStore.Core;
 
     /// <summary>
-    /// Тесты для класса автор.
+    /// Тесты для класса Author.
     /// </summary>
     [TestFixture]
     public class AuthorTests
@@ -17,7 +17,7 @@ namespace MusicStore.Core.Tests
         [Test]
         public void ThrowAnExceptionOnNullName()
         {
-            Assert.Throws<ArgumentNullException>(() => _ = new Author(null, "normal surname", "normal patronymic", new DateOnly(1922, 2, 5)));
+            Assert.Throws<ArgumentNullException>(() => _ = new Author(null, "normal surname", "normal patronymic", new DateTime(1922, 2, 5)));
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace MusicStore.Core.Tests
         [Test]
         public void ThrowAnExceptionOnNullSurname()
         {
-            Assert.Throws<ArgumentNullException>(() => _ = new Author("nornal name", null, "normal patronymic", new DateOnly(1922, 2, 5)));
+            Assert.Throws<ArgumentNullException>(() => _ = new Author("nornal name", null, "normal patronymic", new DateTime(1922, 2, 5)));
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace MusicStore.Core.Tests
         [Test]
         public void NormalAuthorCreation()
         {
-            Assert.DoesNotThrow(() => _ = new Author("nornal name", "nornal surname", "normal patronymic", new DateOnly(1922, 2, 5)));
+            Assert.DoesNotThrow(() => _ = new Author("nornal name", "nornal surname", "normal patronymic", new DateTime(1922, 2, 5)));
         }
     }
 }

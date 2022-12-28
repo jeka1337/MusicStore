@@ -6,7 +6,7 @@ namespace MusicStore.Core.Tests
     using MusicStore.Core;
 
     /// <summary>
-    /// Тесты для класса Альбом.
+    /// Тесты для класса Album.
     /// </summary>
     [TestFixture]
     public class AlbumTests
@@ -17,8 +17,8 @@ namespace MusicStore.Core.Tests
         [Test]
         public void ThrowAnExceptionOnNullTitle()
         {
-            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateOnly(1999, 12, 4));
-            Assert.Throws<ArgumentNullException>(() => _ = new Album(null, "normal description", author, new DateOnly(1922, 2, 5)));
+            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateTime(1999, 12, 4));
+            Assert.Throws<ArgumentNullException>(() => _ = new Album(null, "normal description", author, new DateTime(1922, 2, 5)));
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace MusicStore.Core.Tests
         [Test]
         public void ThrowAnExceptionOnNullAuthor()
         {
-            Assert.Throws<ArgumentNullException>(() => _ = new Album("normal title", "normal description", null, new DateOnly(1922, 2, 5)));
+            Assert.Throws<ArgumentNullException>(() => _ = new Album("normal title", "normal description", null, new DateTime(1922, 2, 5)));
         }
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace MusicStore.Core.Tests
         [Test]
         public void ThrowAnExceptionOnNullDescription()
         {
-            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateOnly(1999, 12, 4));
-            Assert.Throws<ArgumentNullException>(() => _ = new Album("normal title", null, author, new DateOnly(1922, 2, 5)));
+            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateTime(1999, 12, 4));
+            Assert.Throws<ArgumentNullException>(() => _ = new Album("normal title", null, author, new DateTime(1922, 2, 5)));
         }
 
         /// <summary>
@@ -46,8 +46,8 @@ namespace MusicStore.Core.Tests
         [Test]
         public void NormalAlbumCreation()
         {
-            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateOnly(1999, 12, 4));
-            Assert.DoesNotThrow(() => _ = new Album("normal title", "normal description", author, new DateOnly(1900, 2, 1)));
+            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateTime(1999, 12, 4));
+            Assert.DoesNotThrow(() => _ = new Album("normal title", "normal description", author, new DateTime(1900, 2, 1)));
         }
     }
 }
