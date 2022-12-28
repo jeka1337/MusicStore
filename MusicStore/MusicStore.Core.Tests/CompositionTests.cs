@@ -6,7 +6,7 @@ namespace MusicStore.Core.Test
     using MusicStore.Core;
 
     /// <summary>
-    /// Тесты для класса Композиция.
+    /// Тесты для класса Composition.
     /// </summary>
     [TestFixture]
     public class CompositionTests
@@ -44,8 +44,8 @@ namespace MusicStore.Core.Test
         [Test]
         public void NormalCompositionCreation()
         {
-            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateOnly(1999, 12, 4));
-            Album album = new Album("normal title", "nornal author", author, new DateOnly(1900, 2, 1));
+            Author author = new Author("nornal name", "nornal surname", "nornal patronymic", new DateTime(1999, 12, 4));
+            Album album = new Album("normal title", "nornal author", author, new DateTime(1900, 2, 1));
             Assert.DoesNotThrow(() => _ = new Composition("ok title", 123, album, 12.1m));
         }
     }

@@ -43,32 +43,41 @@ namespace MusicStore.Core
         }
 
         /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Composition"/>.
+        /// Пустой конструктор для работы с ORM.
+        /// </summary>
+        [Obsolete("For ORM", true)]
+        protected Composition()
+        {
+        }
+
+        /// <summary>
         /// Серийный номер.
         /// </summary>
-        public Guid Id { get; protected set; }
+        public virtual Guid Id { get; protected set; }
 
         /// <summary>
         /// Название.
         /// </summary>
-        public string Title { get; protected set; }
+        public virtual string Title { get; protected set; }
 
         /// <summary>
         /// Продолжительность.
         /// </summary>
-        public int Duration { get; protected set; }
+        public virtual int Duration { get; protected set; }
 
         /// <summary>
         /// Альбом.
         /// </summary>
-        public Album Album { get; set; }
+        public virtual Album Album { get; set; }
 
         /// <summary>
         /// Цена.
         /// </summary>
-        public decimal Price { get; protected set; }
+        public virtual decimal Price { get; protected set; }
 
         /// <inheritdoc/>
-        public bool Equals(Composition? other)
+        public virtual bool Equals(Composition? other)
         {
             return Equals(this.Id, other?.Id);
         }

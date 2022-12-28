@@ -5,6 +5,9 @@
 ### MicrosoftOffice ###
 *.tmp
 
+*/**/obj/Debug
+*/**/obj/Release
+
 # Word temporary
 ~$*.doc*
 
