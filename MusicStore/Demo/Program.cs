@@ -1,7 +1,6 @@
-﻿// <copyright file="Program.cs" company="Васильева Марина Алексеевна">
-// Copyright (c) Васильева Марина Алексеевна 2021. Учебные материалы.
+﻿// <copyright file="Program.cs" company="Команда">
+// Copyright (c) Команда 2022.
 // </copyright>
-
 namespace Demo
 {
     using System;

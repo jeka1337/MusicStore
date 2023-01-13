@@ -1,7 +1,7 @@
 ﻿// <copyright file="CompositionTests.cs" company="Команда">
 // Copyright (c) Команда 2022.
 // </copyright>
-namespace MusicStore.Core.Test
+namespace MusicStore.Core.Tests
 {
     using MusicStore.Core;
 
